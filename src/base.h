@@ -8,9 +8,9 @@
 #include <Arduino.h>
 #include <Arduino_FreeRTOS.h>
 
-#define RED 7
-#define GREEN 6
-#define YELLOW 8
+#define RED 8
+#define GREEN 7
+#define YELLOW 6
 
 typedef int TaskProfiler;
 
@@ -21,5 +21,9 @@ TaskProfiler YellowLedProfiler;
 const uint16_t *greeLed = (uint16_t *) GREEN;
 const uint16_t *redLed = (uint16_t *) RED;
 const uint16_t *yellowLed = (uint16_t *) YELLOW;
+
+TaskHandle_t red_Handle;
+TaskHandle_t green_Handle;
+TaskHandle_t yellow_Handle;
 
 #endif //UNTITLED10_BASE_H
