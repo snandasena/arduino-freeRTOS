@@ -1,5 +1,5 @@
 //
-// Created by sajith on 3/2/22.
+// Created by sajith on 3/7/22.
 //
 
 #ifndef UNTITLED10_BASE_H
@@ -8,9 +8,9 @@
 #include <Arduino.h>
 #include <Arduino_FreeRTOS.h>
 
-#define RED 7
+#define RED 4
 #define GREEN 6
-#define YELLOW 8
+#define YELLOW 9
 
 typedef int TaskProfiler;
 
@@ -18,8 +18,11 @@ TaskProfiler RedLedProfiler;
 TaskProfiler GreenLedProfiler;
 TaskProfiler YellowLedProfiler;
 
-const uint16_t *greeLed = (uint16_t *) GREEN;
-const uint16_t *redLed = (uint16_t *) RED;
-const uint16_t *yellowLed = (uint16_t *) YELLOW;
+
+void redLedControllerTask(void *pvParams);
+
+void greenLedControllerTask(void *pvParams);
+
+void yellowLedControllerTask(void *pvParams);
 
 #endif //UNTITLED10_BASE_H
