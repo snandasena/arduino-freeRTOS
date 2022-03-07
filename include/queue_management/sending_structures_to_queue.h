@@ -33,7 +33,6 @@ QueueHandle_t xQueue;
 
 void vSenderTask(void *pvParams)
 {
-
     BaseType_t qSatatus;
     const TickType_t xTicksToWait = pdMS_TO_TICKS(100);
     while (1)
@@ -53,12 +52,21 @@ void vReceiveTask(void *pvParams)
     while (1)
     {
         qStatus = xQueueReceive(xQueue, &xReceivedStruture, 0);
-        if (qStatus != pdPASS)
+        if (qStatus == pdPASS)
         {
             if (xReceivedStruture.eDatasource == eSender1)
             {
-                Serial.println("This is ");
+                Serial.print("This is from sender 1 : ");
+                Serial.println(xReceivedStruture.ucValue);
+            }else
+            {
+                Serial.print("This is from sender 2: ");
+                Serial.println(xReceivedStruture.ucValue);
             }
+        }
+        else
+        {
+            Serial.println("Could not receive data from the queue ");
         }
     }
 }
@@ -67,8 +75,8 @@ void vReceiveTask(void *pvParams)
 void SetUp()
 {
     xQueue = xQueueCreate(3, sizeof(Data_t));
-    xTaskCreate(vSenderTask, "Sender Task 1", 100, xStructToSend[0], 2, NULL);
-    xTaskCreate(vSenderTask, "Sender Task 2", 100, xStructToSend[1], 2, NULL);
+    xTaskCreate(vSenderTask, "Sender Task 1", 100, &(xStructToSend[0]), 2, NULL);
+    xTaskCreate(vSenderTask, "Sender Task 2", 100, &(xStructToSend[1]), 2, NULL);
 
     xTaskCreate(vReceiveTask, "Receiver Task", 100, NULL, 1, NULL);
 }
