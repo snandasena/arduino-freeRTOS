@@ -1,4 +1,4 @@
-#include "semaphores/binary_semaphore.h"
+#include "semaphores/couting_semaphore.h"
 
 void setup()
 {
