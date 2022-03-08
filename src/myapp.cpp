@@ -1,4 +1,4 @@
-#include "semaphores/couting_semaphore.h"
+#include "semaphores/mutex_sample.h"
 
 void setup()
 {
