@@ -1,14 +1,20 @@
-#include "queue_management/queue_sets.h"
+#include "timers/interation_with_multiple_timers.h"
 
 void setup()
 {
     Serial.begin(9600);
-// write your initialization code here
+    pinMode(13, OUTPUT);
+    pinMode(RED, OUTPUT);
+    pinMode(GREEN, OUTPUT);
+    pinMode(YELLOW, OUTPUT);
     SetUp();
 }
 
 
 void loop()
 {
-// write your code here
+    digitalWrite(13, HIGH);
+//    delay(200);
+//    digitalWrite(13, LOW);
+//    delay(200);
 }
