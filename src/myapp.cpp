@@ -1,4 +1,4 @@
-#include "timers/interation_with_multiple_timers.h"
+#include "semaphores/binary_semaphore.h"
 
 void setup()
 {
