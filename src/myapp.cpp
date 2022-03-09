@@ -1,4 +1,4 @@
-#include "timers/interation_with_multiple_timers.h"
+#include "semaphores/mutex_sample.h"
 
 void setup()
 {
