@@ -1,4 +1,4 @@
-#include "semaphores/mutex_sample.h"
+#include "semaphores/gatekeeper_task.h"
 
 void setup()
 {
