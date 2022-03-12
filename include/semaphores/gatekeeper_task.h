@@ -10,7 +10,8 @@
 
 static const char *pcStringToPrint[] = {
     "Task 1 ####################################### Task 1  \r\n",
-    "Task 1 --------------------------------------- Task 1  \r\n",
+    "Task 2 --------------------------------------- Task 2  \r\n",
+    "TICK HOOK+++++++++++++++++++++++++++++++++++++ TICK HOOK \r\n",
 };
 
 QueueHandle_t xPrintQueue;
@@ -21,7 +22,8 @@ void outputTask(void *pvParams)
     indexToString = (int) pvParams;
     while (1)
     {
-        xQueueSend(xPrintQueue, &(pcStringToPrint[0]), 0);
+        xQueueSend(xPrintQueue, &(pcStringToPrint[indexToString]), portMAX_DELAY);
+        vTaskDelay(pdMS_TO_TICKS(100));
     }
 }
 
@@ -31,8 +33,21 @@ void gateKeeper(void *)
     while (1)
     {
         xQueueReceive(xPrintQueue, &pcMessageToPrint, portMAX_DELAY);
+        Serial.println(pcMessageToPrint);
     }
 }
+
+//void vApplicationTickHook(void)
+//{
+//    static int cont = 0;
+//    ++cont;
+//    if (cont >= 200)
+//    {
+//        xQueueSendToBackFromISR(xPrintQueue, &(pcStringToPrint[2]), nullptr);
+//        cont = 0;
+//    }
+//
+//}
 
 void SetUp()
 {
