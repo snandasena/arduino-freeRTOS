@@ -1,4 +1,4 @@
-#include "semaphores/mutex_sample.h"
+#include "event_groups/event_groups_demo.h"
 
 void setup()
 {
