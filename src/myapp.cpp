@@ -1,4 +1,4 @@
-#include "event_groups/event_groups_demo.h"
+#include "event_groups/event_group_demo2.h"
 
 void setup()
 {
