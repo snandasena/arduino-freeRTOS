@@ -1,4 +1,4 @@
-#include "event_groups/syncing_task_with_event_groups.h"
+#include "interrupt_management/queues_and_interrupts.h"
 
 void setup()
 {
