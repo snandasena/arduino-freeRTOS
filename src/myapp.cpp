@@ -1,4 +1,4 @@
-#include "event_groups/event_group_demo2.h"
+#include "event_groups/syncing_task_with_event_groups.h"
 
 void setup()
 {
